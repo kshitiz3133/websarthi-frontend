@@ -1,11 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
   const portalUrl = process.env.NEXT_PUBLIC_CMS_PORTAL_URL ?? "#";
+
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -14,37 +20,54 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -60, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-navy-900/90 backdrop-blur-md border-b border-white/5 py-3"
+          ? "bg-background/90 backdrop-blur-md border-b border-border py-3"
           : "py-5"
       }`}
     >
-      <div className="container max-w-6xl px-4 flex items-center justify-between">
+      <div className="container max-w-6xl px-4 mx-auto flex items-center justify-between">
         <a href="/" className="text-xl font-bold gold-text">
-          Websaarthi
+          Websarthi
         </a>
 
-        <nav className="hidden md:flex items-center gap-8 text-sm text-slate-400">
-          <a href="#services" className="hover:text-white transition-colors">
+        <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
+          <a href="#services" className="hover:text-foreground transition-colors">
             Services
           </a>
-          <a href="#why-us" className="hover:text-white transition-colors">
+          <a href="#showcase" className="hover:text-foreground transition-colors">
+            Our Work
+          </a>
+          <a href="#why-us" className="hover:text-foreground transition-colors">
             Why Us
           </a>
         </nav>
 
-        <a
-          href={portalUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gold-500/10 border border-gold-500/30 text-gold-400 hover:bg-gold-500/20 text-sm font-medium transition-all duration-200"
-        >
-          Lead CMS Portal
-          <ExternalLink size={14} />
-        </a>
+        <div className="flex items-center gap-3">
+          {mounted && (
+            <button
+              onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+              className="w-9 h-9 flex items-center justify-center rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-gold-500/40 transition-all duration-200"
+              aria-label="Toggle theme"
+            >
+              {resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
+          )}
+          <a
+            href={portalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gold-500/10 border border-gold-500/30 text-gold-500 dark:text-gold-400 hover:bg-gold-500/20 text-sm font-medium transition-all duration-200"
+          >
+            Lead CMS Portal
+            <ExternalLink size={14} />
+          </a>
+        </div>
       </div>
-    </header>
+    </motion.header>
   );
 }

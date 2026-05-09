@@ -25,7 +25,7 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
 
-  /* shadcn tokens mapped to navy theme */
+  /* shadcn tokens mapped to theme */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -46,7 +46,30 @@
   --color-ring: var(--ring);
 }
 
+/* Light theme (default) */
 :root {
+  --background: #f5f7ff;
+  --foreground: #0a0f1e;
+  --card: #ffffff;
+  --card-foreground: #0a0f1e;
+  --popover: #ffffff;
+  --popover-foreground: #0a0f1e;
+  --primary: #e6a817;
+  --primary-foreground: #0a0f1e;
+  --secondary: #eef0f8;
+  --secondary-foreground: #0a0f1e;
+  --muted: #eef0f8;
+  --muted-foreground: #5a6a8a;
+  --accent: #e6a817;
+  --accent-foreground: #0a0f1e;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgba(10, 15, 30, 0.08);
+  --input: rgba(10, 15, 30, 0.06);
+  --ring: #e6a817;
+}
+
+/* Dark theme */
+.dark {
   --background: #0a0f1e;
   --foreground: #dce3f0;
   --card: #0d1526;
@@ -62,8 +85,8 @@
   --accent: #e6a817;
   --accent-foreground: #0a0f1e;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: rgba(255,255,255,0.06);
-  --input: rgba(255,255,255,0.08);
+  --border: rgba(255, 255, 255, 0.06);
+  --input: rgba(255, 255, 255, 0.08);
   --ring: #e6a817;
 }
 
@@ -72,7 +95,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-navy-900 text-foreground;
+    @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   html {
@@ -89,14 +112,23 @@
     background-clip: text;
   }
   .glass-card {
-    background: rgba(13, 21, 38, 0.6);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(10, 15, 30, 0.08);
     border-radius: 0.75rem;
+  }
+  .dark .glass-card {
+    background: rgba(13, 21, 38, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
   .bg-hero-gradient {
     background:
-      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(230,168,23,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(230, 168, 23, 0.12) 0%, transparent 60%),
+      linear-gradient(180deg, #f5f7ff 0%, #eef0f8 100%);
+  }
+  .dark .bg-hero-gradient {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(230, 168, 23, 0.15) 0%, transparent 60%),
       linear-gradient(180deg, #0a0f1e 0%, #0d1526 100%);
   }
 }

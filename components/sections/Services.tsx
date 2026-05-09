@@ -1,4 +1,5 @@
 import ServiceCard from "@/components/ui/ServiceCard";
+import FadeIn from "@/components/ui/FadeIn";
 import {
   Megaphone,
   UserCheck,
@@ -42,28 +43,34 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-navy-800/30">
-      <div className="container max-w-6xl px-4">
-        <div className="text-center mb-16">
-          <p className="text-gold-400 font-medium text-sm tracking-widest uppercase mb-3">
-            What We Do
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Everything Your Business Needs
-          </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
-            Five core capabilities. One integrated partner. Zero complexity.
-          </p>
-        </div>
+    <section id="services" className="py-24 bg-secondary/50">
+      <div className="container max-w-6xl px-4 mx-auto">
+        <FadeIn>
+          <div className="text-center mb-16">
+            <p className="text-gold-500 dark:text-gold-400 font-medium text-sm tracking-widest uppercase mb-3">
+              What We Do
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+              Everything Your Business Needs
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+              Five core capabilities. One integrated partner. Zero complexity.
+            </p>
+          </div>
+        </FadeIn>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.slice(0, 3).map((s) => (
-            <ServiceCard key={s.title} {...s} />
+          {services.slice(0, 3).map((s, i) => (
+            <FadeIn key={s.title} delay={i * 0.08}>
+              <ServiceCard {...s} />
+            </FadeIn>
           ))}
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6 lg:max-w-2xl lg:mx-auto">
-          {services.slice(3).map((s) => (
-            <ServiceCard key={s.title} {...s} />
+          {services.slice(3).map((s, i) => (
+            <FadeIn key={s.title} delay={i * 0.08}>
+              <ServiceCard {...s} />
+            </FadeIn>
           ))}
         </div>
       </div>

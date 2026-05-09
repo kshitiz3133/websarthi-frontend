@@ -1,8 +1,8 @@
-# Websaarthi Landing Page Implementation Plan
+# Websarthi Landing Page Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Scaffold a Next.js 14 App Router project and build a professional dark-themed landing page for Websaarthi tech consultancy with a CTA that redirects to the Lead CMS portal.
+**Goal:** Scaffold a Next.js 14 App Router project and build a professional dark-themed landing page for Websarthi tech consultancy with a CTA that redirects to the Lead CMS portal.
 
 **Architecture:** Single-page Next.js 14 app using App Router. All UI in `app/page.tsx` composed from small section components under `components/sections/`. Tailwind CSS + shadcn/ui for styling. Portal URL injected via `NEXT_PUBLIC_CMS_PORTAL_URL` env var.
 
@@ -37,7 +37,7 @@
 
 Run from `/Users/kshitiz.agarwal/Personal Repos/`:
 ```bash
-npx create-next-app@latest websaarthi-frontend \
+npx create-next-app@latest websarthi-frontend \
   --typescript \
   --tailwind \
   --eslint \
@@ -51,7 +51,7 @@ When prompted, accept all defaults.
 - [ ] **Step 2: Install additional dependencies**
 
 ```bash
-cd "websaarthi-frontend"
+cd "websarthi-frontend"
 npm install lucide-react clsx tailwind-merge
 npx shadcn@latest init --defaults
 ```
@@ -215,11 +215,11 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Websaarthi — Tech Consultancy & Business Automation",
+  title: "Websarthi — Tech Consultancy & Business Automation",
   description:
     "End-to-end tech consultancy: digital marketing, lead qualification, lead management, tech provision, and full operations automation.",
   openGraph: {
-    title: "Websaarthi",
+    title: "Websarthi",
     description: "Your growth partner — from lead to close.",
     type: "website",
   },
@@ -292,7 +292,7 @@ export default function Hero() {
         {/* Headline */}
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
           Scale Smarter with{" "}
-          <span className="gold-text">Websaarthi</span>
+          <span className="gold-text">Websarthi</span>
         </h1>
 
         {/* Sub-headline */}
@@ -513,7 +513,7 @@ export default function WhyUs() {
       <div className="container max-w-6xl px-4">
         <div className="text-center mb-16">
           <p className="text-gold-400 font-medium text-sm tracking-widest uppercase mb-3">
-            Why Websaarthi
+            Why Websarthi
           </p>
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Built for Outcomes, Not Hours
@@ -567,7 +567,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand */}
           <div>
-            <span className="text-2xl font-bold gold-text">Websaarthi</span>
+            <span className="text-2xl font-bold gold-text">Websarthi</span>
             <p className="text-slate-500 text-sm mt-1">
               Your growth partner — from lead to close.
             </p>
@@ -593,7 +593,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-white/5 text-center text-slate-600 text-sm">
-          © {year} Websaarthi. All rights reserved.
+          © {year} Websarthi. All rights reserved.
         </div>
       </div>
     </footer>
@@ -697,7 +697,7 @@ export default function Navbar() {
     >
       <div className="container max-w-6xl px-4 flex items-center justify-between">
         <a href="/" className="text-xl font-bold gold-text">
-          Websaarthi
+          Websarthi
         </a>
 
         <nav className="hidden md:flex items-center gap-8 text-sm text-slate-400">
@@ -746,11 +746,11 @@ import Navbar from "@/components/sections/Navbar";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Websaarthi — Tech Consultancy & Business Automation",
+  title: "Websarthi — Tech Consultancy & Business Automation",
   description:
     "End-to-end tech consultancy: digital marketing, lead qualification, lead management, tech provision, and full operations automation.",
   openGraph: {
-    title: "Websaarthi",
+    title: "Websarthi",
     description: "Your growth partner — from lead to close.",
     type: "website",
   },
