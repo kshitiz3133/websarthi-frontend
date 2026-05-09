@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import FadeIn from "@/components/ui/FadeIn";
 import TemplateCard from "@/components/ui/TemplateCard";
 import BrowserMockup from "@/components/ui/BrowserMockup";
@@ -104,17 +105,54 @@ export default function WebsiteShowcase() {
         <FadeIn delay={0.15}>
           <div className="flex flex-col lg:flex-row gap-10 items-center">
             {/* Card stack */}
-            <div className="w-full lg:w-5/12 relative h-52">
-              {templates.map((template, i) => (
-                <TemplateCard
-                  key={template.id}
-                  template={template}
-                  index={i}
-                  activeIndex={activeIndex}
-                  total={templates.length}
-                  onClick={() => goTo(i)}
-                />
-              ))}
+            <div className="w-full lg:w-5/12 flex flex-col items-center gap-6">
+              <div className="relative h-52 w-full">
+                {templates.map((template, i) => (
+                  <TemplateCard
+                    key={template.id}
+                    template={template}
+                    index={i}
+                    activeIndex={activeIndex}
+                    total={templates.length}
+                    onClick={() => goTo(i)}
+                  />
+                ))}
+              </div>
+
+              {/* Arrow navigation */}
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={() => goTo((activeIndex - 1 + templates.length) % templates.length)}
+                  className="w-9 h-9 flex items-center justify-center rounded-full border border-border bg-card hover:border-gold-500/40 hover:text-gold-500 text-muted-foreground transition-all duration-200"
+                  aria-label="Previous template"
+                >
+                  <ChevronLeft size={16} />
+                </button>
+
+                {/* Dot indicators */}
+                <div className="flex gap-2">
+                  {templates.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => goTo(i)}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        i === activeIndex
+                          ? "w-5 bg-gold-500"
+                          : "w-1.5 bg-border hover:bg-muted-foreground"
+                      }`}
+                      aria-label={`Go to template ${i + 1}`}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => goTo((activeIndex + 1) % templates.length)}
+                  className="w-9 h-9 flex items-center justify-center rounded-full border border-border bg-card hover:border-gold-500/40 hover:text-gold-500 text-muted-foreground transition-all duration-200"
+                  aria-label="Next template"
+                >
+                  <ChevronRight size={16} />
+                </button>
+              </div>
             </div>
 
             {/* Browser mockup */}
