@@ -68,7 +68,7 @@ export default function TemplateCard({
       <div className="flex items-start justify-between">
         <div>
           <p className="font-semibold text-foreground text-sm">{template.name}</p>
-          <p className={`text-xs mt-0.5 ${accentText[template.accent]}`}>
+          <p className={`text-xs mt-6.5 ${accentText[template.accent]}`}>
             {template.type}
           </p>
         </div>
