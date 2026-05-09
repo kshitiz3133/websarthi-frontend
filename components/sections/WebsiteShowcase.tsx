@@ -91,7 +91,7 @@ export default function WebsiteShowcase() {
     <section id="showcase" className="py-24 bg-secondary/50">
       <div className="container max-w-6xl px-4 mx-auto">
         <FadeIn className="text-center mb-16">
-          <p className="text-gold-500 dark:text-gold-400 font-medium text-sm tracking-widest uppercase mb-3">
+          <p className="text-gold-500 dark:text-indigo-400 font-medium text-sm tracking-widest uppercase mb-3">
             Web Development
           </p>
           <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
@@ -123,7 +123,7 @@ export default function WebsiteShowcase() {
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => goTo((activeIndex - 1 + templates.length) % templates.length)}
-                  className="w-9 h-9 flex items-center justify-center rounded-full border border-border bg-card hover:border-gold-500/40 hover:text-gold-500 text-muted-foreground transition-all duration-200"
+                  className="w-9 h-9 flex items-center justify-center rounded-full border border-border bg-card hover:border-gold-500/40 dark:hover:border-indigo-500/40 hover:text-gold-500 dark:hover:text-indigo-400 text-muted-foreground transition-all duration-200"
                   aria-label="Previous template"
                 >
                   <ChevronLeft size={16} />
@@ -137,7 +137,7 @@ export default function WebsiteShowcase() {
                       onClick={() => goTo(i)}
                       className={`h-1.5 rounded-full transition-all duration-300 ${
                         i === activeIndex
-                          ? "w-5 bg-gold-500"
+                          ? "w-5 bg-gold-500 dark:bg-indigo-500"
                           : "w-1.5 bg-border hover:bg-muted-foreground"
                       }`}
                       aria-label={`Go to template ${i + 1}`}
@@ -147,7 +147,7 @@ export default function WebsiteShowcase() {
 
                 <button
                   onClick={() => goTo((activeIndex + 1) % templates.length)}
-                  className="w-9 h-9 flex items-center justify-center rounded-full border border-border bg-card hover:border-gold-500/40 hover:text-gold-500 text-muted-foreground transition-all duration-200"
+                  className="w-9 h-9 flex items-center justify-center rounded-full border border-border bg-card hover:border-gold-500/40 dark:hover:border-indigo-500/40 hover:text-gold-500 dark:hover:text-indigo-400 text-muted-foreground transition-all duration-200"
                   aria-label="Next template"
                 >
                   <ChevronRight size={16} />

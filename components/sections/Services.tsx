@@ -47,7 +47,7 @@ export default function Services() {
       <div className="container max-w-6xl px-4 mx-auto">
         <FadeIn>
           <div className="text-center mb-16">
-            <p className="text-gold-500 dark:text-gold-400 font-medium text-sm tracking-widest uppercase mb-3">
+            <p className="text-gold-500 dark:text-indigo-400 font-medium text-sm tracking-widest uppercase mb-3">
               What We Do
             </p>
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
