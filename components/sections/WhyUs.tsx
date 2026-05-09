@@ -25,7 +25,7 @@ export default function WhyUs() {
       <div className="container max-w-6xl px-4 mx-auto">
         <FadeIn>
           <div className="text-center mb-16">
-            <p className="text-gold-500 dark:text-gold-400 font-medium text-sm tracking-widest uppercase mb-3">
+            <p className="text-gold-500 dark:text-indigo-400 font-medium text-sm tracking-widest uppercase mb-3">
               Why Websarthi
             </p>
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
@@ -41,7 +41,7 @@ export default function WhyUs() {
           {pillars.map((p, i) => (
             <FadeIn key={p.title} delay={i * 0.1}>
               <div className="flex flex-col items-start gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold-500/20 to-gold-500/5 border border-gold-500/20 flex items-center justify-center text-gold-500 dark:text-gold-400">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold-500/20 dark:from-indigo-500/20 to-gold-500/5 dark:to-indigo-500/5 border border-gold-500/20 dark:border-indigo-500/20 flex items-center justify-center text-gold-500 dark:text-indigo-400">
                   <p.icon size={28} />
                 </div>
                 <h3 className="text-foreground font-semibold text-xl">{p.title}</h3>

@@ -12,8 +12,8 @@ export default function ServiceCard({
   description,
 }: ServiceCardProps) {
   return (
-    <div className="glass-card p-6 flex flex-col gap-4 hover:border-gold-500/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] group">
-      <div className="w-12 h-12 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-500 dark:text-gold-400 group-hover:bg-gold-500/20 transition-colors duration-300">
+    <div className="glass-card p-6 flex flex-col gap-4 hover:border-gold-500/20 dark:hover:border-indigo-500/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] group">
+      <div className="w-12 h-12 rounded-lg bg-gold-500/10 dark:bg-indigo-500/10 flex items-center justify-center text-gold-500 dark:text-indigo-400 group-hover:bg-gold-500/20 dark:group-hover:bg-indigo-500/20 transition-colors duration-300">
         <Icon size={24} />
       </div>
       <div>

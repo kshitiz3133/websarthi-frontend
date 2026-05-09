@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ExternalLink, Sun, Moon } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
+import ContactButton from "@/components/ui/ContactButton";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 
@@ -9,7 +10,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
-  const portalUrl = process.env.NEXT_PUBLIC_CMS_PORTAL_URL ?? "#";
+  const contactEmail = "mailto:hsinghal179@gmail.com";
 
   useEffect(() => { setMounted(true); }, []);
 
@@ -51,21 +52,13 @@ export default function Navbar() {
           {mounted && (
             <button
               onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-              className="w-9 h-9 flex items-center justify-center rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-gold-500/40 transition-all duration-200"
+              className="w-9 h-9 flex items-center justify-center rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-indigo-500/40 dark:hover:border-indigo-500/40 transition-all duration-200"
               aria-label="Toggle theme"
             >
               {resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
             </button>
           )}
-          <a
-            href={portalUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gold-500/10 border border-gold-500/30 text-gold-500 dark:text-gold-400 hover:bg-gold-500/20 text-sm font-medium transition-all duration-200"
-          >
-            Lead CMS Portal
-            <ExternalLink size={14} />
-          </a>
+          <ContactButton className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gold-500/10 dark:bg-indigo-500/10 border border-gold-500/30 dark:border-indigo-500/30 text-gold-500 dark:text-indigo-400 hover:bg-gold-500/20 dark:hover:bg-indigo-500/20 text-sm font-medium transition-all duration-200" />
         </div>
       </div>
     </motion.header>

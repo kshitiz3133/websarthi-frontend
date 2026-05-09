@@ -1,8 +1,8 @@
-import { ArrowRight, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 import FadeIn from "@/components/ui/FadeIn";
+import ContactButton from "@/components/ui/ContactButton";
 
 export default function Hero() {
-  const portalUrl = process.env.NEXT_PUBLIC_CMS_PORTAL_URL ?? "#";
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-hero-gradient overflow-hidden">
@@ -17,12 +17,12 @@ export default function Hero() {
       />
 
       {/* Glow orb */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gold-500/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gold-500/5 dark:bg-indigo-500/10 blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 container max-w-5xl mx-auto text-center px-4 pt-24">
         {/* Badge */}
         <FadeIn delay={0}>
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 text-gold-500 dark:text-gold-400 text-sm font-medium mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 dark:border-indigo-500/30 bg-gold-500/10 dark:bg-indigo-500/10 text-gold-500 dark:text-indigo-400 text-sm font-medium mb-8">
             <Zap size={14} />
             End-to-end Tech Consultancy
           </div>
@@ -47,18 +47,13 @@ export default function Hero() {
         {/* CTAs */}
         <FadeIn delay={0.3}>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href={portalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-gold-500 hover:bg-gold-400 text-navy-900 font-semibold text-lg transition-all duration-200 hover:scale-105 hover:shadow-[0_0_30px_rgba(230,168,23,0.4)] active:scale-100"
-            >
-              Access Lead CMS Portal
-              <ArrowRight size={20} />
-            </a>
+            <ContactButton
+              size="lg"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-gold-500 dark:bg-indigo-600 hover:bg-gold-400 dark:hover:bg-indigo-500 text-navy-900 dark:text-white font-semibold text-lg transition-all duration-200 hover:scale-105 hover:shadow-[0_0_30px_rgba(230,168,23,0.4)] dark:hover:shadow-[0_0_30px_rgba(99,102,241,0.4)] active:scale-100"
+            />
             <a
               href="#services"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg border border-border hover:border-gold-500/30 text-muted-foreground hover:text-foreground font-medium text-lg transition-all duration-200"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg border border-border hover:border-gold-500/30 dark:hover:border-indigo-500/30 text-muted-foreground hover:text-foreground font-medium text-lg transition-all duration-200"
             >
               Explore Services
             </a>

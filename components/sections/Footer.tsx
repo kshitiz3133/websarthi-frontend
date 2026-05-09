@@ -1,8 +1,8 @@
 import FadeIn from "@/components/ui/FadeIn";
+import ContactButton from "@/components/ui/ContactButton";
 
 export default function Footer() {
   const year = new Date().getFullYear();
-  const portalUrl = process.env.NEXT_PUBLIC_CMS_PORTAL_URL ?? "#";
 
   return (
     <footer className="border-t border-border bg-background">
@@ -26,14 +26,7 @@ export default function Footer() {
               <a href="#why-us" className="hover:text-foreground transition-colors">
                 Why Us
               </a>
-              <a
-                href={portalUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-gold-400 transition-colors font-medium"
-              >
-                Lead CMS Portal ↗
-              </a>
+              <ContactButton className="inline-flex items-center gap-1 hover:text-gold-500 dark:hover:text-indigo-400 transition-colors font-medium" />
             </nav>
           </div>
         </FadeIn>

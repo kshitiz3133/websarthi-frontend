@@ -68,26 +68,26 @@
   --ring: #e6a817;
 }
 
-/* Dark theme */
+/* Dark theme — deep navy + indigo */
 .dark {
-  --background: #0a0f1e;
-  --foreground: #dce3f0;
-  --card: #0d1526;
-  --card-foreground: #dce3f0;
-  --popover: #0d1526;
-  --popover-foreground: #dce3f0;
-  --primary: #e6a817;
-  --primary-foreground: #0a0f1e;
-  --secondary: #111c33;
-  --secondary-foreground: #dce3f0;
-  --muted: #111c33;
+  --background: #080c18;
+  --foreground: #e2e8f8;
+  --card: #0d1226;
+  --card-foreground: #e2e8f8;
+  --popover: #0d1226;
+  --popover-foreground: #e2e8f8;
+  --primary: #818cf8;
+  --primary-foreground: #080c18;
+  --secondary: #111830;
+  --secondary-foreground: #e2e8f8;
+  --muted: #111830;
   --muted-foreground: #6b7fa3;
-  --accent: #e6a817;
-  --accent-foreground: #0a0f1e;
+  --accent: #818cf8;
+  --accent-foreground: #080c18;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.07);
   --input: rgba(255, 255, 255, 0.08);
-  --ring: #e6a817;
+  --ring: #818cf8;
 }
 
 @layer base {
@@ -111,6 +111,12 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+  .dark .gold-text {
+    background: linear-gradient(90deg, #a5b4fc, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
   .glass-card {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(8px);
@@ -128,7 +134,7 @@
   }
   .dark .bg-hero-gradient {
     background:
-      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(230, 168, 23, 0.15) 0%, transparent 60%),
-      linear-gradient(180deg, #0a0f1e 0%, #0d1526 100%);
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(99, 102, 241, 0.2) 0%, transparent 60%),
+      linear-gradient(180deg, #080c18 0%, #0d1226 100%);
   }
 }
